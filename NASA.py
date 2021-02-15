@@ -9,7 +9,11 @@ from pathlib import Path
 
 
 def main():
+    # Get your personal key from: https://api.nasa.gov/
     key = ""
+    if not key:
+        print("You need an api key. \nGet your personal key from: https://api.nasa.gov")
+        return
     url = f"https://api.nasa.gov/planetary/apod?api_key={key}"
     response = requests.get(url)
     json_response = response.json()
